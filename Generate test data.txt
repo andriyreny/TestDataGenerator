@@ -1,0 +1,33 @@
+Please generate a c# code that performs the following steps:
+1) Generate test data by using the Bogus library from the following link - https://github.com/bchavez/Bogus
+2) The generated test data should cover a wide range of scenarios, including positive, negative, and edge cases, to ensure comprehensive testing of the application's functionality. 
+3) The test data should accurately represent the expected input and output data types, formats, and values, ensuring that it is suitable for validating the application's functionality. 
+4) The test data should be diverse and include different combinations of inputs, ensuring that the application is tested against a variety of scenarios. 
+5) Test data should be generated in CSV format.
+6) Test data should consist form two entities - 'Titles' and 'Credits'.
+7) The code should generate 150 test data rows for each entity.
+8) Entity 'Titles' should have a one-to-many relationship with
+'Credits' entity(titles.id  is primary key in entity 'Titles' and credits.title_id is foreign key in entity 'Credits')
+9) Test data for each entity should be generated in a separate file(in CSV format).
+10) Please generate a c# class for 'Titles' entity with name 'Titles'.
+11) 'Titles' entity should have next structure:
+titles.id numeric title identifier ;
+titles.title textual movie (series) name ;
+titles.description textual title description ;
+titles.release_year should have a Common Era year format 
+titles.age_certification should be one of these: G, PG, PG-13, R, NC-17, U, U/A, A, S, AL, 6, 9, 12, 12A, 15, 18, 18R, R18, R21, M, MA15+, R16, R18+, X18, T, E, E10+, EC, C, CA, GP, M/PG, TV-Y, TV-Y7, TV-G, TV-PG, TV-14, TV-MA ;
+titles.runtime should be a common title duration in minutes ;
+titles.genres should contain a list of strings representing various movie (series) genres ;
+titles.production_country should represent a country in ISO 3166-1 Alpha-3 code ;
+titles.seasons should represent the number of seasons for series or be empty for movies;
+12) 'Credits' entity should have next structure:
+credits.id numeric credits identifier ;
+credits.title_id corresponding title id ;
+credits.real_name full credits member name ;
+credits.character_name corresponding movie (series) character name; 
+credits.role should represent corresponding role and be one of these: Director, Producer, Screenwriter, Actor, Actress, Cinematographer, Film Editor, Production Designer, Costume Designer, Music Composer;
+12)  Generated values for property 'titles.genres'  from entity 'Titles' should be divided by character ';'
+13)  Generated values for above  property 'titles.age_certification'  from entity 'Titles' should be picked from next list:  G, PG, PG-13, R, NC-17, U, U/A, A, S, AL, 6, 9, 12, 12A, 15, 18, 18R, R18, R21, M, MA15+, R16, R18+, X18, T, E, E10+, EC, C, CA, GP, M/PG, TV-Y, TV-Y7, TV-G, TV-PG, TV-14, TV-MA.
+14) Generated values for property 'credits.role'  from entity 'Credits' should be picked from next list: Director, Producer, Screenwriter, Actor, Actress, Cinematographer, Film Editor, Production Designer, Costume Designer, Music Composer.
+15) Method Random.Bool() from  Bogus library should be generated for the above code with arguments type float.
+16)  Generated values for above  property 'titles.production_country'  from entity 'Titles' should be generatted by using method Address.CountryCode(Iso3166Format.Alpha3) from Bogus library.
